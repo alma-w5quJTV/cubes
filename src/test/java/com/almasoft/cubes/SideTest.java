@@ -14,21 +14,14 @@ public class SideTest {
         Side symmetrySide = new Side().north(0,1,0,0).east(0,1,0,0).south(0,1,0,0).west(0,1,0,0);
         Set<Side> r = symmetrySide.iterateOverAllRotations();
         
-        r.forEach(s -> System.out.println(s.toString()));
-        
-        
         Assert.assertEquals(1, r.size());
         Assert.assertTrue(r.contains(symmetrySide));
     }
     @Test public void testASymmetryRotations(){
         Side symmetrySide = new Side().north(1,1,0,0).east(0,1,0,0).south(0,1,0,0).west(0,1,0,1);
-        System.out.println(symmetrySide);
-        System.out.println("------------------");
         Set<Side> r = symmetrySide.iterateOverAllRotations();
-        
-        r.forEach(s -> System.out.println(s.toString()));
-        
-        
+        Assert.assertTrue(r.contains(symmetrySide));
+        Assert.assertTrue(r.size() > 1);
     }
     @Test public void equalsTest(){
         Side a = new Side().north(0,1,0,0).east(0,1,0,0).south(0,1,0,0).west(0,1,0,0);
